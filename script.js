@@ -1,6 +1,6 @@
 function consultarClima() {
   const ciudad = document.getElementById('ciudad').value;
-  const API_KEY = '4bf1509cee1e4724d3843ad1a486e86f'; // Sustituye "tu_api_key" por tu propia API key de OpenWeatherMap
+  const API_KEY = '4bf1509cee1e4724d3843ad1a486e86f';
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${API_KEY}`;
   fetch(url)
     .then(response => {
@@ -25,7 +25,7 @@ function consultarClima() {
 
 function consultarClimas() {
   const ciudades = document.getElementById('ciudades').value.split(',').map(ciudad => ciudad.trim());
-  const API_KEY = '4bf1509cee1e4724d3843ad1a486e86f'; // Sustituye "tu_api_key" por tu propia API key de OpenWeatherMap
+  const API_KEY = '4bf1509cee1e4724d3843ad1a486e86f';
   Promise.all(ciudades.map(ciudad => {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${API_KEY}`;
       return fetch(url)
@@ -38,7 +38,7 @@ function consultarClimas() {
         });
     }))
     .then(data => {
-      // Mostrar resultados en la tabla
+      // resultados
       const tabla = document.getElementById('tabla-clima').getElementsByTagName('tbody')[0];
       data.forEach(ciudad => {
         const fila = tabla.insertRow();
@@ -51,11 +51,22 @@ function consultarClimas() {
       console.error('Error al consultar el clima', error);
     });
 }
-
+// Limpiar tablas
 function limpiarTabla() {
-  var tabla = document.getElementById("tabla-clima"); // Reemplaza "miTabla" con el ID de tu tabla
+  var tabla = document.getElementById("tabla-clima-body"); // Reemplaza "miTabla" con el ID de tu tabla
   
   while (tabla.hasChildNodes()) {
     tabla.removeChild(tabla.firstChild);
   }
 }
+
+setInterval(function() {
+  var elemento = document.getElementById("elemento");
+  if (elemento.classList.contains("background-a")) {
+    elemento.classList.remove("background-a");
+    elemento.classList.add("background-b");
+  } else {
+    elemento.classList.remove("background-b");
+    elemento.classList.add("background-a");
+  }
+}, 3000);

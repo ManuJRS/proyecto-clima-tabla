@@ -3,53 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Bootstrap-clima.css">
+    <link rel="stylesheet" href="/estilos-personalizados.css">
     <title>Consulta de clima</title>
     <style>
         table {
           border-collapse: collapse;
         }
         th, td {
-          border: 1px solid black;
           padding: 8px;
           text-align: left;
         }
       </style>  
 </head>
 <body>
+  <div id="elemento" class="background-a">
+  <div class="container-fluid mx-auto text-center">
+    <div class="row">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-8 contenedor__principal my-3">
     <h1>Consulta de Clima</h1>
     <div>
-        <label for="ciudad">Ciudad :</label>
+        <label for="ciudad"></label>
      </div>
      <div>
-         <input type="text" id="ciudad">
-         <button onclick="consultarClima()">Consultar</button>
+         <input type="text" id="ciudad" placeholder="ciudad">
+         <button onclick="consultarClima()" type="button" class="btn btn-success">Consultar</button>
      </div>
      <div>
-        <label for="ciudades">Ciudades:</label>
+        <label for="ciudades"></label>
       </div>
        <div>
-            <input type="text" id="ciudades" value="London, Paris, Berlin">
-            <button onclick="consultarClimas()">Consultar</button>
+            <input type="text" id="ciudades" placeholder="ciudades">
+            <button onclick="consultarClimas()" type="button" class="btn btn-success">Consultar</button>
         </div>
     <br><br>
     <div>
-        <button onclick="limpiarTabla()">Limpiar</button>
+        <button onclick="limpiarTabla()" type="button" class="btn btn-danger">Limpiar</button>
    </div>
    <br><br>
-   <div>
-    <table id="tabla-clima">
+   
+  </div>
+  <div class="col-md-2">
+
+  </div>
+  <div class="container-fluid my-3">
+    <div class="row">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-8 d-flex justify-content-center">
+    <table id="tabla-clima" class="table-primary">
       <thead>
-        <tr>
-          <th>Ciudad</th>
-          <th>Temperatura</th>
-          <th>Descripción</th>
+        <tr class="table-primary">
+          <th class="table-primary">Ciudad</th>
+          <th class="table-primary">Temperatura</th>
+          <th class="table-primary">Descripción</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="tabla-clima-body" class="table-primary">
         
       </tbody>
     </table>
     </div>
+    <div class="col-md-2">
+
+    </div>
+    </div>
+  </div>
+  </div>
+  </div>
+</div>
+    <script src="/bootstrap-js.js"></script>
     <script src="/script.js"></script>
 </body>
 </html>
